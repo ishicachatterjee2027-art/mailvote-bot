@@ -112,6 +112,7 @@ body {
 }
 
 /* Full-bleed hero banner aligned to the 720px column */
+/* Full-bleed hero banner aligned to the 720px column */
 header {
   position: relative;
   isolation: isolate;
@@ -122,6 +123,36 @@ header {
   padding-left: max(16px, calc(50vw - 360px + max(16px, env(safe-area-inset-left, 0px))));
   padding-right: max(16px, calc(50vw - 360px + max(16px, env(safe-area-inset-right, 0px))));
   color: #eeeaff;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: #0b0a1c url("./hero.jpg") 68% center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 66%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 66%, transparent 100%);
+  pointer-events: none;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      95deg,
+      rgba(11, 10, 28, 0.94) 0%,
+      rgba(11, 10, 28, 0.84) 42%,
+      rgba(11, 10, 28, 0.45) 76%,
+      rgba(11, 10, 28, 0.28) 100%
+    ),
+    radial-gradient(circle at 20% 30%, rgba(109, 40, 217, 0.32), transparent 60%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 66%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 66%, transparent 100%);
+  pointer-events: none;
 }
 
 header::before {
